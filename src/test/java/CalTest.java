@@ -5,10 +5,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CalTest {
     @Test
-    public void getZegopTest(){ 
+    public void getZegopTest(){
+        Cal cal = new Cal();
         int testVal = 10;
-        int returnV = getZegop(testVal);
-        assertEqual(100, returnV);
+        int returnV = cal.getZegop(testVal);
+        assertEquals(100, returnV);
     }
     @Test
     @DisplayName("MinusTest")
@@ -59,10 +60,11 @@ class CalTest {
     }
 
     @Test
-    void getSumSum() {
+    @DisplayName("SumSum 함수 전체 양수 테스트")
+    void getSumSumAllPositiveNum() {
         // arrange
         Cal cal = new Cal();
-        int expected = 10;
+        int expected = 15;
 
         // act
         int actual = cal.getSumSum(10, 3, 2);
@@ -71,5 +73,31 @@ class CalTest {
         assertEquals(expected, actual); 
     }
 
+    @Test
+    @DisplayName("SumSum 함수 전체 음수 테스트")
+    void getSumSumAllNegotiveNum() {
+        // arrange
+        Cal cal = new Cal();
+        int expected = -15;
 
+        // act
+        int actual = cal.getSumSum(-10, -3, -2);
+
+        // assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("SumSum 함수 음수/양수 포함 테스트")
+    void getSumSumAllNegAndPosNum() {
+        // arrange
+        Cal cal = new Cal();
+        int expected = 5;
+
+        // act
+        int actual = cal.getSumSum(10, -3, -2);
+
+        // assert
+        assertEquals(expected, actual);
+    }
 }
