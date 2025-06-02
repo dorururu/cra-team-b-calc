@@ -1,5 +1,9 @@
 public class Cal {
-    // 수정
+    int getDivide(int a, int b){
+        if(b==0)
+            throw new RuntimeException("0으로 나눌수 없습니다");
+        return a/b;
+    }
     public int getGopGop(int a, int b, int c) {
         return a * b * c;
     }
@@ -16,4 +20,5 @@ public class Cal {
     public int getSum(int a, int b){
         return a+b;
     }
+
 }

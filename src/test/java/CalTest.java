@@ -1,5 +1,5 @@
+
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,13 +19,23 @@ class CalTest {
                 assertEquals(expect,result);
     }
   
+
+
+    @Test
+    void getDivide() {
+        Cal c = new Cal();
+        int expected = 3;
+
+        int actual = c.getDivide(6,2);
+        assertEquals(expected, actual);
+    }
+
     @Test
     @DisplayName("곱곱 테스트")
     void getGopGop() {
         Cal cal = new Cal();
         int result = cal.getGopGop(2, 3, 4);
         assertEquals(24, result, "2 * 3 * 4 should equal 24");
-
         result = cal.getGopGop(1, 5, 6);
         assertEquals(30, result, "1 * 5 * 6 should equal 30");
 
@@ -58,6 +68,8 @@ class CalTest {
         int actual = cal.getSumSum(10, 3, 2);
 
         // assert
-        assertEquals(expected, actual);
+        assertEquals(expected, actual); 
     }
+
+
 }
