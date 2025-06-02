@@ -5,11 +5,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CalTest {
     @Test
-    public void getZegopTest(){ 
+    public void getZegopTest(){
+        Cal cal = new Cal();
         int testVal = 10;
-        int returnV = getZegop(testVal);
-        assertEqual(100, returnV);
+        int returnV = cal.getZegop(testVal);
+        assertEquals(100, returnV);
     }
+
     @Test
     @DisplayName("MinusTest")
     void getMinus() {
@@ -17,6 +19,15 @@ class CalTest {
                 int expect = 3;
                 int result = cal.getMinus(4,1);
                 assertEquals(expect,result);
+    }
+
+    @Test
+    @DisplayName("MinusTest")
+    void getMinus2() {
+        Cal cal = new Cal();
+        int expect = 1;
+        int result = cal.getMinus(4,3);
+        assertEquals(expect,result);
     }
   
 
@@ -86,7 +97,7 @@ class CalTest {
     void getSumSum() {
         // arrange
         Cal cal = new Cal();
-        int expected = 10;
+        int expected = 15;
 
         // act
         int actual = cal.getSumSum(10, 3, 2);
