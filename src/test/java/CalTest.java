@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -5,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CalTest {
 
     @Test
+    @DisplayName("곱곱 테스트")
     void getGopGop() {
         Cal cal = new Cal();
         int result = cal.getGopGop(2, 3, 4);
