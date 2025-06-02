@@ -119,4 +119,17 @@ class CalTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    @DisplayName("곱하기 테스트 - 음수 X 음수")
+    void getGop2() {
+        int a = -40;
+        int b = -5;
+        int expected = 200;
+
+        Cal cal = new Cal();
+        int actual = cal.getGop(a, b);
+
+        assertEquals(expected, actual);
+    }
 }
