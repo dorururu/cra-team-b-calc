@@ -2,7 +2,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalTest {
-
+    @Test
+    public void getZegopTest(){ 
+        int testVal = 10;
+        int returnV = getZegop(testVal);
+        assertEqual(100, returnV);
+    }
     @Test
     @DisplayName("MinusTest")
     void getMinus() {
@@ -23,5 +28,18 @@ class CalTest {
         int actual = cal.getSum(input1, input2);
 
         assertEquals(expected, actual); 
+    }
+
+    @Test
+    void getSumSum() {
+        // arrange
+        Cal cal = new Cal();
+        int expected = 10;
+
+        // act
+        int actual = cal.getSumSum(10, 3, 2);
+
+        // assert
+        assertEquals(expected, actual);
     }
 }
