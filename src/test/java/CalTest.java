@@ -5,10 +5,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CalTest {
     @Test
-    public void getZegopTest(){ 
+    public void getZegopTest(){
+        Cal cal = new Cal();
         int testVal = 10;
-        int returnV = getZegop(testVal);
-        assertEqual(100, returnV);
+        int returnV = cal.getZegop(testVal);
+        assertEquals(100, returnV);
     }
     @Test
     @DisplayName("MinusTest")
@@ -22,12 +23,23 @@ class CalTest {
 
 
     @Test
+    @DisplayName("기본 나누기 테스트")
     void getDivide() {
         Cal c = new Cal();
         int expected = 3;
 
         int actual = c.getDivide(6,2);
         assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("Divide Zero Exception 확인")
+    void getDivideDivideZero() {
+        Cal c = new Cal();
+
+        assertThrows(RuntimeException.class, () -> {
+            int actual = c.getDivide(6, 0);
+        });
     }
 
     @Test
