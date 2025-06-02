@@ -5,11 +5,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CalTest {
     @Test
-    public void getZegopTest(){ 
+    public void getZegopTest(){
+        Cal cal = new Cal();
+
         int testVal = 10;
-        int returnV = getZegop(testVal);
-        assertEqual(100, returnV);
+        int returnV = cal.getZegop(testVal);
+        assertEquals(100, returnV);
     }
+
     @Test
     @DisplayName("MinusTest")
     void getMinus() {
@@ -18,8 +21,6 @@ class CalTest {
                 int result = cal.getMinus(4,1);
                 assertEquals(expect,result);
     }
-  
-
 
     @Test
     void getDivide() {
@@ -31,19 +32,59 @@ class CalTest {
     }
 
     @Test
-    @DisplayName("곱곱 테스트")
-    void getGopGop() {
+    @DisplayName("곱곱 테스트 양수만")
+    void getGopGopTest_only_positive() {
+        // Arrage
         Cal cal = new Cal();
-        int result = cal.getGopGop(2, 3, 4);
-        assertEquals(24, result, "2 * 3 * 4 should equal 24");
-        result = cal.getGopGop(1, 5, 6);
-        assertEquals(30, result, "1 * 5 * 6 should equal 30");
+        int expected = 30;
 
-        result = cal.getGopGop(0, 10, 20);
-        assertEquals(0, result, "0 * 10 * 20 should equal 0");
+        // Act
+        int result = cal.getGopGop(1, 5, 6);
 
-        result = cal.getGopGop(-1, -2, -3);
-        assertEquals(-6, result, "-1 * -2 * -3 should equal -6");
+        // Assert
+        assertEquals(expected, result, "1 * 5 * 6 should equal 30");
+    }
+
+    @Test
+    @DisplayName("곱곱 테스트 음수만")
+    void getGopGopTest_only_negative() {
+        // Arrage
+        Cal cal = new Cal();
+        int expected = -24;
+
+        // Act
+        int result = cal.getGopGop(-2, -3, -4);
+
+        // Assert
+        assertEquals(expected, result, "-2 * -3 * -4 should equal -24");
+    }
+
+    @Test
+    @DisplayName("곱곱 테스트 0 포함")
+    void getGopGopTest_with_zero() {
+        // Arrage
+        Cal cal = new Cal();
+        int expected = 0;
+
+        // Act
+        int result = cal.getGopGop(0, 10, 20);
+
+        // Assert
+        assertEquals(expected, result, "0 * 10 * 20 should equal 0");
+    }
+
+    @Test
+    @DisplayName("곱곱 테스트 양수 음수 섞어서")
+    void getGopGopTest_mixed() {
+        // Arrage
+        Cal cal = new Cal();
+        int expected = -50;
+
+        // Act
+        int result = cal.getGopGop(-1, 5, 10);
+
+        // Assert
+        assertEquals(expected, result, "-1 * 5 * 10 should equal -50");
     }
   
    @Test
@@ -86,7 +127,7 @@ class CalTest {
     void getSumSum() {
         // arrange
         Cal cal = new Cal();
-        int expected = 10;
+        int expected = 15;
 
         // act
         int actual = cal.getSumSum(10, 3, 2);
