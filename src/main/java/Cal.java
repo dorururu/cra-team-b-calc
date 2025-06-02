@@ -1,4 +1,8 @@
 public class Cal {
+
+    int getGop(int a, int b) {
+        return a * b;
+    }
     int getDivide(int a, int b){
         if(b==0)
             throw new RuntimeException("0으로 나눌수 없습니다");
