@@ -1,3 +1,5 @@
 public class Cal {
-    // 수정
+    public int getSum(int a, int b){
+        return a+b;
+    }
 }
